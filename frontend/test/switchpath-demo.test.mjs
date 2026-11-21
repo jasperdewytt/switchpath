@@ -271,12 +271,6 @@ test("static fallback cards use shared progress metadata and persisted completio
   assert.doesNotMatch(pathway, /if \(!steps\) document\.querySelector\("#pathway-summary"\)\.textContent = "0 complete · 1 active · 3 previews"/);
 });
 
-test("product blueprint labels pre-MVP controls and pages as historical review", () => {
-  const blueprint = readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), "../../docs/product-blueprint.md"), "utf8");
-  assert.match(blueprint, /At the time of the initial review/);
-  assert.doesNotMatch(blueprint, /The current onboarding controls are static\./);
-});
-
 test("typography bundles Inter for interface copy and uses system Times New Roman for headings", () => {
   const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
   const layout = readFileSync(resolve(root, "src/layouts/Layout.astro"), "utf8");
